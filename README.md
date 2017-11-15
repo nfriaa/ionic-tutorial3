@@ -33,6 +33,7 @@ ionic g provider PeopleService
 ```
 
 - changer le code du fichier `src/providers/people-service/people-service.ts` comme suit :
+Nous allons recupérer 5 utilisateurs à partir de l'API `randomuser.me` à l'aide de l'URL `https://randomuser.me/api/?results=5`
 ```ts
 import { Http } from '@angular/http';
 import { Injectable } from "@angular/core";
@@ -89,7 +90,7 @@ imports: [
 ionic g page PeopleList
 ```
 
-- puis déclarer cette page dans le menu principale de l'application (voir ionic-tutorial1)
+- puis déclarer cette page dans le menu principale de l'application (voir ionic-tutorial1).
 
 - modifier le code du fichier `src/pages/people-list/people-list.ts` pour avoir :
 ```ts
@@ -150,10 +151,18 @@ export class PeopleListPage {
       <ion-avatar item-left>
         <img src="{{person.picture.thumbnail}}">
       </ion-avatar>
-      <h2>{{person.name.first}} {{person.name.last}}</h2>
+      <h2>{{person.name.title}} {{person.name.first}} {{person.name.last}}</h2>
       <p>{{person.email}}</p>
     </button>
   </ion-list>
 
 </ion-content>
 ```
+
+## 3. Créer la page qui va contenir les détails d'une personne :
+- générer la page :
+```sh
+ionic g page PeopleDetails
+```
+
+- puis déclarer cette page dans le fichier `src/app/app.module.ts` (voir ionic-tutorial1).

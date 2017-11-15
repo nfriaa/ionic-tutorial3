@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>People Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="selectedItem">
+
+    <h2>{{selectedItem.name.title}} {{selectedItem.name.first}} {{selectedItem.name.last}}</h2>
+
+    <img src="{{selectedItem.picture.medium}}">
+
+    <br/> Email : {{selectedItem.email}}
+
+  </div>
+</ion-content>

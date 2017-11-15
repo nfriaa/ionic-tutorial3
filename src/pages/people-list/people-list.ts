@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { PeopleServiceProvider } from "../../providers/people-service/people-service";
+import { PeopleDetailsPage } from '../people-details/people-details';
 
 @IonicPage()
 @Component({
@@ -27,6 +28,12 @@ export class PeopleListPage {
     this.peopleServiceProvider.load()
     .then(data => {
       this.people = data;
+    });
+  }
+
+  itemTapped(event, item) {
+    this.navCtrl.push(PeopleDetailsPage, {
+      item: item
     });
   }
 

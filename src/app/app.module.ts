@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { PeopleListPage } from '../pages/people-list/people-list';
+import { PeopleDetailsPage } from '../pages/people-details/people-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +20,8 @@ import {HttpModule} from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    PeopleListPage
+    PeopleListPage,
+    PeopleDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import {HttpModule} from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    PeopleListPage
+    PeopleListPage,
+    PeopleDetailsPage
   ],
   providers: [
     StatusBar,
