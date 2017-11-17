@@ -10,11 +10,11 @@
 <ion-content padding>
 
   <ion-list>
-    <button ion-item *ngFor="let person of people" (click)="itemTapped($event, item)">
+    <button ion-item *ngFor="let person of peoples" (click)="itemTapped($event, person)">
       <ion-avatar item-left>
         <img src="{{person.picture.thumbnail}}">
       </ion-avatar>
-      <h2>{{person.name.title}} {{person.name.first}} {{person.name.last}}</h2>
+      <h2>{{person.name.first}} {{person.name.last}}</h2>
       <p>{{person.email}}</p>
     </button>
   </ion-list>

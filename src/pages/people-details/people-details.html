@@ -8,13 +8,27 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="selectedItem">
 
-    <h2>{{selectedItem.name.title}} {{selectedItem.name.first}} {{selectedItem.name.last}}</h2>
+  <ion-card *ngIf="selectedItem">
+    <img src="{{selectedItem.picture.medium}}" />
+    
+    <ion-card-content>
+      <ion-card-title>
+        {{selectedItem.name.title}} {{selectedItem.name.first}} {{selectedItem.name.last}}
+      </ion-card-title>
 
-    <img src="{{selectedItem.picture.medium}}">
+      <p>
+        Email: {{selectedItem.email}}
+        <br/>
+        phone: {{selectedItem.phone}}
+        <br/>
+        Nationality: {{selectedItem.nat}}
+        <br/>
+        City: {{selectedItem.location.city}}
+        <br/>
+        State: {{selectedItem.location.state}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 
-    <br/> Email : {{selectedItem.email}}
-
-  </div>
 </ion-content>

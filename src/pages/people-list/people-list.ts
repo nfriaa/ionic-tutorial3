@@ -12,7 +12,7 @@ import { PeopleDetailsPage } from '../people-details/people-details';
 })
 export class PeopleListPage {
 
-  public people: any;
+  public peoples: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -27,13 +27,13 @@ export class PeopleListPage {
   loadPeople(){
     this.peopleServiceProvider.load()
     .then(data => {
-      this.people = data;
+      this.peoples = data;
     });
   }
 
-  itemTapped(event, item) {
+  itemTapped(event, person) {
     this.navCtrl.push(PeopleDetailsPage, {
-      item: item
+      person: person
     });
   }
 

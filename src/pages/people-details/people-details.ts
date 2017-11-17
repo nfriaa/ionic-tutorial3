@@ -12,7 +12,7 @@ export class PeopleDetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.selectedItem = navParams.get('item');
+    this.selectedItem = navParams.get('person');
     
   }
 
