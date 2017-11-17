@@ -1,6 +1,6 @@
 # ionic-tutorial3
 
-Ionic tutorial3 : Appel d'une API de type RESTful et affichage des données.
+Ionic tutorial3 : Appel d'une API de type RESTful et affichage des données (liste / détails). L'API utilisée dans ce tutorial est `https://randomuser.me/api/` qui permet d'avoir un ou plusieurs personnes exemples.
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat)](https://github.com/nfriaa/ionic-tutorial3/issues) [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/nfriaa/ionic-tutorial3) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/nfriaa/ionic-tutorial3/blob/master/LICENSE)
 
@@ -59,7 +59,7 @@ export class PeopleServiceProvider {
       // then on the response, it'll map the JSON data to a parsed JS object.
       // Next, we process the data and resolve the promise with the new data.
       this.http
-        .get("https://randomuser.me/api/?results=5")
+        .get("https://randomuser.me/api/?results=10")
         .map(res => res.json())
         .subscribe(data => {
           // we've got back the raw data, now generate the core schedule data
@@ -107,7 +107,7 @@ import { PeopleServiceProvider } from "../../providers/people-service/people-ser
 })
 export class PeopleListPage {
 
-  public people: any;
+  public peoples: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -147,7 +147,7 @@ export class PeopleListPage {
 <ion-content padding>
 
   <ion-list>
-    <button ion-item *ngFor="let person of people">
+    <button ion-item *ngFor="let person of peoples">
       <ion-avatar item-left>
         <img src="{{person.picture.thumbnail}}">
       </ion-avatar>
@@ -166,3 +166,86 @@ ionic g page PeopleDetails
 ```
 
 - puis déclarer cette page dans le fichier `src/app/app.module.ts` (voir ionic-tutorial1).
+
+- dans le fichier `src/pages/people-list/people-list.html` ajouter l'appel de fonction après le clic :
+```html
+<button ion-item *ngFor="let person of peoples" (click)="itemTapped($event, person)">
+```
+
+- dans le fichier `src/pages/people-list/people-list.ts` ajouter la fonction `itemTapped` qui nous rediriger vers la page `PeopleDetailsPage` :
+```ts
+itemTapped(event, person) {
+    this.navCtrl.push(PeopleDetailsPage, {
+      person: person
+    });
+  }
+```
+
+- le code du fichier `src/pages/people-details/people-details.ts` :
+```ts
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+@IonicPage()
+@Component({
+  selector: 'page-people-details',
+  templateUrl: 'people-details.html',
+})
+export class PeopleDetailsPage {
+
+  selectedItem: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+    this.selectedItem = navParams.get('person');
+    
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad PeopleDetailsPage');
+  }
+
+}
+```
+
+- le code du fichier `src/pages/people-details/people-details.html` :
+```html
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>People Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="selectedItem">
+    <img src="{{selectedItem.picture.medium}}" />
+    
+    <ion-card-content>
+      <ion-card-title>
+        {{selectedItem.name.title}} {{selectedItem.name.first}} {{selectedItem.name.last}}
+      </ion-card-title>
+
+      <p>
+        Email: {{selectedItem.email}}
+        <br/>
+        Phone: {{selectedItem.phone}}
+        <br/>
+        Nationality: {{selectedItem.nat}}
+        <br/>
+        City: {{selectedItem.location.city}}
+        <br/>
+        State: {{selectedItem.location.state}}
+        <br/>
+        Birth date: {{selectedItem.dob}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+```
+
+Et voilà vous pouvez visualiser la liste des personnes et lorsqu'on clic sur une personne on obtient les détails.
