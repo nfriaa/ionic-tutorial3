@@ -264,7 +264,7 @@ Il est possible d'utiliser une seule page. On va appliquer ça à la liste du fi
 
 <ion-content>
 
-+  <ion-list *ngIf="!selectedItem">
++ <ion-list *ngIf="!selectedItem">
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-start></ion-icon>
       {{item.title}}
@@ -274,7 +274,7 @@ Il est possible d'utiliser une seule page. On va appliquer ça à la liste du fi
     </button>
   </ion-list>
 
-  <div *ngIf="selectedItem" padding>
++ <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b> : {{selectedItem.note}}
   </div>
 </ion-content>
