@@ -252,7 +252,7 @@ Et voilà vous pouvez visualiser la liste des personnes et lorsqu'on clic sur un
 
 ## 4. Utiliser une même page pour la liste et les détials
 Il est possible d'utiliser une seule page. On va appliquer ça à la liste du fichier `src/pages/list/list.html` :
-```html
+```diff
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -264,7 +264,7 @@ Il est possible d'utiliser une seule page. On va appliquer ça à la liste du fi
 
 <ion-content>
 
-  <ion-list *ngIf="!selectedItem">
++  <ion-list *ngIf="!selectedItem">
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-start></ion-icon>
       {{item.title}}
