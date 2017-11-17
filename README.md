@@ -84,7 +84,7 @@ imports: [
   ],
 ```
 
-## 2. Créer la page qui va contenir la liste des personnes :
+## 2. Créer la page qui va contenir la liste des personnes
 - générer la page :
 ```sh
 ionic g page PeopleList
@@ -159,7 +159,7 @@ export class PeopleListPage {
 </ion-content>
 ```
 
-## 3. Créer la page qui va contenir les détails d'une personne :
+## 3. Créer la page qui va contenir les détails d'une personne
 - générer la page :
 ```sh
 ionic g page PeopleDetails
