@@ -2,7 +2,7 @@
 
 Ionic tutorial3 : Appel d'une API de type RESTful et affichage des données (liste / détails). L'API utilisée dans ce tutorial est `https://randomuser.me` qui permet d'avoir un ou plusieurs personnes exemples.
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat)](https://github.com/nfriaa/ionic-tutorial3/issues) [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/nfriaa/ionic-tutorial3) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/nfriaa/ionic-tutorial3/blob/master/LICENSE)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat)](https://github.com/nfriaa/ionic-tutorial3/issues) [![Build Status](https://travis-ci.org/nfriaa/ionic-tutorial3.svg?branch=master)](https://travis-ci.org/nfriaa/ionic-tutorial3) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/nfriaa/ionic-tutorial3/blob/master/LICENSE)
 
 ![](https://img.shields.io/badge/node-8-red.svg)
 ![](https://img.shields.io/badge/npm-5-blue.svg)
